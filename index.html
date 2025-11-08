@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORA - B2B Footwear Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Google Font - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Hide scrollbar for category nav */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- 
+      ==================================================================
+      1. DESKTOP HEADER (Bade Screen ke liye)
+      Yeh sirf 'lg' (large) screen aur usse bade pe dikhega
+      ==================================================================
+    -->
+    <header class="bg-white shadow-md sticky top-0 z-50 hidden lg:block">
+        <!-- Top Bar -->
+        <div class="bg-gray-100 text-gray-600 text-xs py-2">
+            <div class="container mx-auto px-4 flex justify-between items-center">
+                <div>
+                    <span>Bulk Delivery Available</span> | <span>Easy Returns for Partners</span>
+                </div>
+                <div>Follow Us: <!-- Social icons --></div>
+            </div>
+        </div>
+        <!-- Main Nav -->
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-extrabold text-black tracking-tight">CORA</a>
+            <nav class="flex items-center gap-8">
+                <a href="#" class="font-medium text-blue-600">Home</a>
+                <a href="#" class="font-medium text-gray-600 hover:text-blue-600">Catalog</a>
+                <a href="#" class="font-medium text-gray-600 hover:text-blue-600">Our Story</a>
+                <a href="#" class="font-medium text-gray-600 hover:text-blue-600">Blog</a>
+                <a href="#" class="font-medium text-gray-600 hover:text-blue-600">Contact</a>
+            </nav>
+            <div class="flex items-center gap-6">
+                <i data-lucide="search" class="w-5 h-5 cursor-pointer text-gray-600"></i>
+                <a href="#" class="flex items-center gap-2 text-gray-600">
+                    <i data-lucide="user" class="w-5 h-5"></i> <span class="font-medium">Business Login</span>
+                </a>
+                <a href="#" class="relative text-gray-600">
+                    <i data-lucide="heart" class="w-5 h-5"></i>
+                    <span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">3</span>
+                </a>
+                <a href="#" class="relative flex items-center gap-2 text-gray-600">
+                    <i data-lucide="shopping-cart" class="w-5 h-5"></i> <span class="font-medium">Bulk Order</span>
+                    <span class="absolute -top-2 -right-2 bg-blue-600 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">1</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 
+      ==================================================================
+      2. MOBILE HEADER (Phone ke liye)
+      Yeh 'lg' (large) screen se chote pe dikhega
+      ==================================================================
+    -->
+    <div class="lg:hidden sticky top-0 z-50 bg-white shadow-md">
+        <!-- Mobile Top Bar: Logo, Search, Cart -->
+        <div class="flex items-center p-4 gap-3">
+            <a href="#" class="text-2xl font-extrabold text-black">CORA</a>
+            <!-- Lamba Search Bar -->
+            <div class="flex-1 relative">
+                <input type="text" placeholder="Search for products..." class="w-full bg-gray-100 border border-gray-200 rounded-lg py-2 px-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+            </div>
+            <!-- Cart Icon -->
+            <a href="#" class="relative text-gray-600 p-2">
+                <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                <span class="absolute top-0 right-0 bg-blue-600 text-white text-xs w-4 h-4 rounded-full flex items-center justify-center">1</span>
+            </a>
+        </div>
+
+        <!-- Mobile Categories Bar (Aapne jaisa kaha search bar ke neeche) -->
+        <nav class="flex overflow-x-auto whitespace-nowrap p-3 border-t border-gray-200 bg-gray-50 no-scrollbar">
+            <a href="#" class="inline-block px-4 py-1 text-sm font-medium text-blue-600 border-b-2 border-blue-600">All</a>
+            <a href="#" class="inline-block px-4 py-1 text-sm text-gray-600">Men's</a>
+            <a href="#" class="inline-block px-4 py-1 text-sm text-gray-600">Women's</a>
+            <a href="#" class="inline-block px-4 py-1 text-sm text-gray-600">Kids'</a>
+            <a href="#" class="inline-block px-4 py-1 text-sm text-gray-600">Sports</a>
+            <a href="#" class="inline-block px-4 py-1 text-sm text-gray-600">Formal</a>
+            <a href="#" class="inline-block px-4 py-1 text-sm text-gray-600">Sandals</a>
+            <a href="#" class="inline-block px-4 py-1 text-sm text-gray-600">New Arrivals</a>
+        </nav>
+    </div>
+
+    <!-- 
+      ==================================================================
+      3. MAIN CONTENT (Responsive)
+      Isko 'pb-20' (padding-bottom) diya hai taki mobile nav ke niche na chhupe
+      ==================================================================
+    -->
+    <main class="pb-20 lg:pb-0">
+        <!-- Hero Section -->
+        <section class="relative h-[300px] md:h-[450px] lg:h-[600px] bg-gray-800">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1600x600/333/555?text=B2B+Footwear+Banner');"></div>
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="relative z-10 container mx-auto px-4 h-full flex flex-col justify-center items-center text-center lg:items-start lg:text-left text-white">
+                <span class="text-base lg:text-lg font-medium uppercase tracking-wider mb-2">New Season Stock</span>
+                <h1 class="text-4xl lg:text-7xl font-extrabold mb-4 leading-tight">SUMMER 2024</h1>
+                <p class="text-lg lg:text-2xl font-light mb-8">NEW ARRIVALS</p>
+                <button class="bg-white text-black font-bold py-3 px-8 rounded-full text-base lg:text-lg hover:bg-gray-200">
+                    Browse Catalog
+                </button>
+            </div>
+        </section>
+
+        <!-- Features Bar -->
+        <section class="bg-white lg:bg-gray-50 py-8 border-b border-t border-gray-200">
+            <!-- Mobile pe 2 column, large pe 4 -->
+            <div class="container mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="flex items-center justify-center lg:justify-start gap-3">
+                    <i data-lucide="truck" class="w-7 h-7 text-blue-600 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-semibold text-sm">Bulk Shipping</h4>
+                        <p class="text-xs text-gray-500">Over $1,000</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start gap-3">
+                    <i data-lucide="refresh-cw" class="w-7 h-7 text-blue-600 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-semibold text-sm">Easy Returns</h4>
+                        <p class="text-xs text-gray-500">30-day policy</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start gap-3">
+                    <i data-lucide="shield-check" class="w-7 h-7 text-blue-600 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-semibold text-sm">Secure Payments</h4>
+                        <p class="text-xs text-gray-500">Net 30/60 Terms</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center lg:justify-start gap-3">
+                    <i data-lucide="headset" class="w-7 h-7 text-blue-600 flex-shrink-0"></i>
+                    <div>
+                        <h4 class="font-semibold text-sm">Partner Support</h4>
+                        <p class="text-xs text-gray-500">24/7 support</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Arrivals Section -->
+        <section class="py-12">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl lg:text-3xl font-bold">New Stock Arrivals</h2>
+                    <a href="#" class="font-medium text-blue-600 hover:underline text-sm">View All</a>
+                </div>
+                <!-- Mobile pe 2 column, large pe 4 -->
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+                    <!-- Product Card 1 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden group border border-gray-200">
+                        <div class="relative">
+                            <img src="https://placehold.co/400x400/E2E8F0/A0AEC0?text=Shoe" alt="Product" class="h-48 lg:h-72 w-full object-cover">
+                            <span class="absolute top-2 left-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full">NEW</span>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-semibold text-base lg:text-lg mb-1 truncate">CORA Classic Loafers</h3>
+                            <p class="text-xs text-gray-600 mb-2">MOQ: 50 Units</p>
+                            <div class="text-base lg:text-lg font-bold text-blue-600">Login for Price</div>
+                        </div>
+                    </div>
+                    <!-- Product Card 2 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden group border border-gray-200">
+                        <img src="https://placehold.co/400x400/E2E8F0/A0AEC0?text=Shoe" alt="Product" class="h-48 lg:h-72 w-full object-cover">
+                        <div class="p-3">
+                            <h3 class="font-semibold text-base lg:text-lg mb-1 truncate">Men's Sport Runners</h3>
+                            <p class="text-xs text-gray-600 mb-2">MOQ: 100 Units</p>
+                            <div class="text-base lg:text-lg font-bold text-blue-600">Login for Price</div>
+                        </div>
+                    </div>
+                    <!-- Product Card 3 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden group border border-gray-200">
+                        <img src="https://placehold.co/400x400/E2E8F0/A0AEC0?text=Shoe" alt="Product" class="h-48 lg:h-72 w-full object-cover">
+                        <div class="p-3">
+                            <h3 class="font-semibold text-base lg:text-lg mb-1 truncate">Summer Sandals</h3>
+                            <p class="text-xs text-gray-600 mb-2">MOQ: 75 Units</p>
+                            <div class="text-base lg:text-lg font-bold text-blue-600">Login for Price</div>
+                        </div>
+                    </div>
+                    <!-- Product Card 4 -->
+                    <div class="bg-white rounded-lg shadow-sm overflow-hidden group border border-gray-200">
+                         <div class="relative">
+                            <img src="https://placehold.co/400x400/E2E8F0/A0AEC0?text=Shoe" alt="Product" class="h-48 lg:h-72 w-full object-cover">
+                            <span class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">HOT</span>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="font-semibold text-base lg:text-lg mb-1 truncate">Unisex White Sneakers</h3>
+                            <p class="text-xs text-gray-600 mb-2">MOQ: 120 Units</p>
+                            <div class="text-base lg:text-lg font-bold text-blue-600">Login for Price</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collections Section -->
+        <section class="py-12 bg-white lg:bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-xl lg:text-3xl font-bold text-center mb-6">Our Core Collections</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
+                    <div class="relative h-64 lg:h-96 rounded-lg overflow-hidden shadow-lg">
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/800x600/555/777?text=Men%27s');"></div>
+                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-2xl lg:text-3xl font-bold mb-3">Men's Collection</h3>
+                            <button class="bg-white text-black font-bold py-2 px-6 rounded-full text-sm">Shop Men's</button>
+                        </div>
+                    </div>
+                    <div class="relative h-64 lg:h-96 rounded-lg overflow-hidden shadow-lg">
+                        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/800x600/777/999?text=Women%27s');"></div>
+                        <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <h3 class="text-2xl lg:text-3xl font-bold mb-3">Women's Collection</h3>
+                            <button class="bg-white text-black font-bold py-2 px-6 rounded-full text-sm">Shop Women's</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sale Banner -->
+        <section class="py-16 lg:py-24 bg-blue-900 text-white">
+            <div class="container mx-auto px-4 text-center flex flex-col items-center">
+                <h2 class="text-3xl lg:text-5xl font-extrabold mb-4">Get 50% Off</h2>
+                <p class="text-lg lg:text-xl font-light mb-8">On All Bulk Orders This Week</p>
+                <button class="bg-yellow-400 text-blue-900 font-bold py-3 px-10 rounded-full text-base lg:text-lg hover:bg-yellow-300">
+                    Order Now
+                </button>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="py-12 bg-white lg:bg-gray-50">
+            <div class="container mx-auto px-4 max-w-3xl text-center">
+                <h2 class="text-xl lg:text-3xl font-bold mb-6">Our Valued Partners</h2>
+                <div class="flex justify-center items-center mb-4">
+                    <!-- Stars -->
+                </div>
+                <p class="text-base lg:text-xl italic text-gray-700 leading-relaxed mb-6">
+                    "Working with CORA has transformed our retail business. Their quality and reliable delivery are unmatched."
+                </p>
+                <h4 class="font-semibold text-base lg:text-lg">Aarav Patel</h4>
+                <p class="text-sm text-gray-500">Owner, Metro Shoes, Mumbai</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 
+      ==================================================================
+      4. FOOTER (Responsive)
+      Yeh desktop aur mobile, dono pe dikhega
+      ==================================================================
+    -->
+    <footer class="bg-gray-900 text-gray-400 py-16">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
+            <div class="lg:col-span-2">
+                <a href="#" class="text-3xl font-extrabold text-white tracking-tight mb-4 inline-block">CORA</a>
+                <p class="text-sm leading-relaxed mb-6">
+                    India's leading B2B footwear portal. We connect manufacturers with retailers.
+                </p>
+                <div class="flex items-center gap-4">
+                    <!-- Social Icons -->
+                </div>
+            </div>
+            <div>
+                <h5 class="font-semibold text-white mb-4 uppercase text-sm">Catalog</h5>
+                <nav class="flex flex-col gap-3">
+                    <a href="#" class="hover:text-white">Men's</a>
+                    <a href="#" class="hover:text-white">Women's</a>
+                    <a href="#" class="hover:text-white">Kids'</a>
+                </nav>
+            </div>
+            <div>
+                <h5 class="font-semibold text-white mb-4 uppercase text-sm">Help</h5>
+                <nav class="flex flex-col gap-3">
+                    <a href="#" class="hover:text-white">Partner Support</a>
+                    <a href="#" class="hover:text-white">Shipping Info</a>
+                    <a href="#" class="hover:text-white">Return Policy</a>
+                </nav>
+            </div>
+            <div class="md:col-span-2 lg:col-span-1">
+                <h5 class="font-semibold text-white mb-4 uppercase text-sm">Join Newsletter</h5>
+                <form classs="flex flex-col">
+                    <input type="email" placeholder="Your business email" class="bg-gray-800 border-gray-700 rounded-lg w-full px-4 py-2 mb-2 text-white">
+                    <button type="submit" class="bg-blue-600 text-white font-medium w-full py-2 px-4 rounded-lg">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="bg-black text-gray-600 text-center py-4 text-sm mt-12">
+            <p>&copy; 2024 CORA B2B. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- 
+      ==================================================================
+      5. MOBILE BOTTOM NAVIGATION (Phone ke liye Sticky)
+      Yeh sirf 'lg' (large) screen se chote pe dikhega
+      ==================================================================
+    -->
+    <nav class="lg:hidden fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-200 p-2 flex justify-around">
+        <a href="#" class="flex flex-col items-center text-blue-600 p-2">
+            <i data-lucide="home" class="w-6 h-6"></i>
+        </a>
+        <a href="#" class="flex flex-col items-center text-gray-600 p-2">
+            <i data-lucide="layout-grid" class="w-6 h-6"></i>
+        </a>
+        <a href="#" class="flex flex-col items-center text-gray-600 p-2">
+            <i data-lucide="package" class="w-6 h-6"></i>
+        </a>
+         <a href="#" class="flex flex-col items-center text-gray-600 p-2">
+            <i data-lucide="heart" class="w-6 h-6"></i>
+        </a>
+        <a href="#" class="flex flex-col items-center text-gray-600 p-2">
+            <i data-lucide="user" class="w-6 h-6"></i>
+        </a>
+    </nav>
+
+
+    <!-- Script to activate Lucide icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
